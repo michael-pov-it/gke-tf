@@ -31,7 +31,7 @@ resource "kubernetes_service" "apache-example" {
     session_affinity = "ClientIP"
 
     port {
-      port        = 8080
+      port        = 80
       target_port = 80
     }
 
