@@ -37,6 +37,6 @@ provider "kubernetes" {
 
 provider "google" {
   project      = var.project_id
-  region       = var.region
+  region       = "europe-west3" // var.region
   zone         = "europe-west3-b"
 }
