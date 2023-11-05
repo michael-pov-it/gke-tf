@@ -9,16 +9,16 @@ terraform {
   #   bucket = "gke-terraform-tfstate-bucket-2023" # GCS bucket name to store terraform tfstate
   #   prefix = "gke-test" 				                 # Update to desired prefix name. Prefix name should be unique for each Terraform project having same remote state bucket.
   # }
-  # backend "local" {
-  #   path = "terraform.tfstate"
-  # }
-  cloud {
-    organization = "mike-devops-org"
-
-    workspaces {
-      name = "workspaces_name_1"
-    }
+  backend "local" {
+    path = "terraform.tfstate"
   }
+  # cloud {
+  #   organization = "mike-devops-org"
+
+  #   workspaces {
+  #     name = "mike-gke-test"
+  #   }
+  # }
   
   required_providers {
     google = {
@@ -43,6 +43,8 @@ provider "kubernetes" {
 }
 
 provider "google" {
-  project = var.project_id
-  region  = var.region
+  project     = var.project_id
+  region      = var.region
+  zone        = "europe-west3-b"
+  credentials = file("gcp-secret-key.json")
 }
