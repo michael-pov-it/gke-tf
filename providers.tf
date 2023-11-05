@@ -26,7 +26,17 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = ">= 2.23.0"
     }
+    helm = {
+      source = "hashicorp/helm"
+      version = "2.11.0"
+    }
   }
+}
+
+provider "google" {
+  project      = var.project_id
+  region       = "europe-west3" // var.region
+  zone         = "europe-west3-b"
 }
 
 provider "kubernetes" {
@@ -35,8 +45,9 @@ provider "kubernetes" {
   cluster_ca_certificate = base64decode(module.gke.ca_certificate)
 }
 
-provider "google" {
-  project      = var.project_id
-  region       = "europe-west3" // var.region
-  zone         = "europe-west3-b"
+provider "helm" {
+  kubernetes {
+    config_path = "~/.kube/config"
+    # host     = "https://cluster_endpoint:port" // 34.89.153.0
+  }
 }

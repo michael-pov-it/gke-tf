@@ -20,7 +20,7 @@ resource "kubernetes_pod" "nginx-example" {
 
 resource "kubernetes_service" "nginx-example" {
   metadata {
-    name = "terraform-example"
+    name = "nginx-mike"
   }
 
   spec {
