@@ -29,7 +29,7 @@ module "gke" {
       auto_upgrade    = true
       auto_repair     = true
       autoscaling     = false
-      service_account = "gke-tf-1@gke-test-tf1.iam.gserviceaccount.com"
+      service_account = "789559055596-compute@developer.gserviceaccount.com"
     },
   ]
 
