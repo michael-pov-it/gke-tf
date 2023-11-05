@@ -1,5 +1,4 @@
 ### Common variables
-
 variable "project_id" {
   type        = string
   description = "The project ID to host the cluster in"
@@ -42,4 +41,9 @@ variable "zones" {
   type        = list(string)
   description = "The project ID to host the cluster in"
   default     = ["europe-west3-a", "europe-west3-b"]
+}
+
+### Creds
+variable "GOOGLE_CREDENTIALS" {
+  default     = ""
 }
