@@ -10,12 +10,11 @@ spec:
     name     : in-cluster
     namespace: argocd
   source:
-    path   : "demo-dev/applications"
-    repoURL: "git@github.com:adv4000/argocd.git"
+    path   : "test/applications"
+    repoURL: "git@github.com:michael-pov-it/gke-tf.git"
     targetRevision: HEAD
   project: default
   syncPolicy:
     automated:
       prune   : true
       selfHeal: true
-      

@@ -44,10 +44,3 @@ provider "kubernetes" {
   token                  = data.google_client_config.default.access_token
   cluster_ca_certificate = base64decode(module.gke.ca_certificate)
 }
-
-provider "helm" {
-  kubernetes {
-    config_path = "~/.kube/config"
-    # host     = "https://cluster_endpoint:port" // 34.89.153.0
-  }
-}
