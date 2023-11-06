@@ -34,3 +34,5 @@ override.tf.json
 terraform.rc
 
 .terraform.lock.hcl
+libft
+deployments/pr_project/env-one

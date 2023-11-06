@@ -1,6 +1,0 @@
-# Prod Override Values for my Helm Chart
-
-container:
-  image: httpd:latest
-
-replicaCount: 3

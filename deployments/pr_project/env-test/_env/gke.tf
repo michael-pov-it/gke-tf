@@ -1,6 +1,6 @@
 module "gke" {
   source                     = "terraform-google-modules/kubernetes-engine/google"
-  version                    = "26.1.1"
+  version                    = "29.0.0"
   project_id                 = var.project_id
   name                       = "${var.cluster_name}-${var.env_name}"
   regional                   = true
@@ -35,7 +35,6 @@ module "gke" {
     },
   ]
 
-
   node_pools_oauth_scopes = {
     all = [
       "https://www.googleapis.com/auth/logging.write",
@@ -50,7 +49,7 @@ module "gke" {
   node_pools_labels = {
     all = {}
 
-    node-pool-test = {
+    default-node-pool = {
       default-node-pool = true
     }
   }
@@ -83,6 +82,7 @@ module "gke" {
       "owner:MikeGordievsky",
     ]
   }
+  
   depends_on = [
     module.gcp-network
   ]
