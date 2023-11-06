@@ -1,6 +1,6 @@
 resource "kubernetes_pod" "apache-example" {
   metadata {
-    name = "apache-example"
+    name = "apache-test-pod"
 
     labels = {
       maintained_by = "terraform"
@@ -20,7 +20,7 @@ resource "kubernetes_pod" "apache-example" {
 
 resource "kubernetes_service" "apache-example" {
   metadata {
-    name = "apache-mike"
+    name = "apache-test-svc"
   }
 
   spec {

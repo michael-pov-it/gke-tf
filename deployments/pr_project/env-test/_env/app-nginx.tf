@@ -1,6 +1,6 @@
 resource "kubernetes_pod" "nginx-example" {
   metadata {
-    name = "nginx-example"
+    name = "nginx-test-pod"
 
     labels = {
       maintained_by = "terraform"
@@ -20,7 +20,7 @@ resource "kubernetes_pod" "nginx-example" {
 
 resource "kubernetes_service" "nginx-example" {
   metadata {
-    name = "nginx-mike"
+    name = "nginx-test-svc"
   }
 
   spec {
