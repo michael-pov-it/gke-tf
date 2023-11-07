@@ -1,9 +1,9 @@
 data "google_iam_policy" "admin" {
   binding {
-    role = "roles/editor"
+    role = "roles/roles/storage.admin"
 
     members = [
-      "user:witty87@google.com",
+      "user:mike-test-gke1@gke-test-tf1.iam.gserviceaccount.com",
     ]
   }
 }
