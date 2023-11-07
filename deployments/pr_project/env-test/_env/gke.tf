@@ -79,7 +79,7 @@ module "gke" {
     all = []
     node-pool-test = [
       "node-test-pool",
-      "owner:mike-gordievsky",
+      "test-cluster",
     ]
   }
   
