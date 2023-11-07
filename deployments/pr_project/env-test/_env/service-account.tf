@@ -1,12 +1,12 @@
-# data "google_iam_policy" "admin" {
-#   binding {
-#     role = "roles/roles/storage.admin"
+data "google_iam_policy" "admin" {
+  binding {
+    role = "roles/roles/storage.admin"
 
-#     members = [
-#       "user:mike-test-gke1@gke-test-tf1.iam.gserviceaccount.com",
-#     ]
-#   }
-# }
+    members = [
+      "user:mike-test-gke1@gke-test-tf1.iam.gserviceaccount.com",
+    ]
+  }
+}
 
 # resource "google_project_iam_policy" "project" {
 #   project     = "gke-test-tf1"
