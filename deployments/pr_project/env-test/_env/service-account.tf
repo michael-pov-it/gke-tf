@@ -3,7 +3,7 @@ data "google_iam_policy" "storage_admin" {
     role = "roles/roles/storage.admin"
 
     members = [
-      "user:mike-test-tf-1@gke-test-tf1.iam.gserviceaccount.com",
+      "serviceAccount:mike-test-tf-1@gke-test-tf1.iam.gserviceaccount.com",
     ]
   }
 }
