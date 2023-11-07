@@ -1,17 +1,17 @@
-data "google_iam_policy" "admin" {
+data "google_iam_policy" "storage_admin" {
   binding {
     role = "roles/roles/storage.admin"
 
     members = [
-      "user:mike-test-gke1@gke-test-tf1.iam.gserviceaccount.com",
+      "user:mike-test-tf-1@gke-test-tf1.iam.gserviceaccount.com",
     ]
   }
 }
 
-# resource "google_project_iam_policy" "project" {
-#   project     = "gke-test-tf1"
-#   policy_data = data.google_iam_policy.admin.policy_data
-# }
+resource "google_project_iam_policy" "project" {
+  project     = "gke-test-tf1"
+  policy_data = data.google_iam_policy.storage_admin.policy_data
+}
 
 # resource "google_service_account" "mike-name" {
 #   account_id = "mike-name"
