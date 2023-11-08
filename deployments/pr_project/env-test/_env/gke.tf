@@ -12,7 +12,7 @@ module "gke" {
   ip_range_services          = var.ip_range_services_name
   http_load_balancing        = false
   network_policy             = false
-  horizontal_pod_autoscaling = false // true
+  horizontal_pod_autoscaling = true
   filestore_csi_driver       = false
   create_service_account     = true
   logging_service            = "logging.googleapis.com/kubernetes"
@@ -22,16 +22,16 @@ module "gke" {
       name                = "node-pool-test"
       machine_type        = "e2-standard-2"
       node_locations      = "europe-west3-b,europe-west3-c"
-      min_count           = 1
-      max_count           = 3
-      disk_size_gb        = 30
+      min_count           = 2
+      max_count           = 4
+      disk_size_gb        = 50
       spot                = false
       auto_upgrade        = true
       auto_repair         = true
       autoscaling         = false
       preemptible         = false
       initial_node_count  = 80
-      service_account     = "789559055596-compute@developer.gserviceaccount.com"
+      service_account     = "test-sa@gke-test-tf1.iam.gserviceaccount.com" //"789559055596-compute@developer.gserviceaccount.com"
     },
   ]
 
