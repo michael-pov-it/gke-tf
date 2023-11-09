@@ -22,8 +22,8 @@ module "gke" {
       name                = "node-pool-test"
       machine_type        = "e2-standard-2"
       node_locations      = "europe-west3-b,europe-west3-c"
-      min_count           = 2
-      max_count           = 4
+      min_count           = 3
+      max_count           = 6
       disk_size_gb        = 50
       spot                = false
       auto_upgrade        = true
