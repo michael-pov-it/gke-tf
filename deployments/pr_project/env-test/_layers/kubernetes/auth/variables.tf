@@ -11,3 +11,7 @@ variable "cluster_name" {
   type        = string
   description = "The project ID to host the cluster in"
 }
+variable "env_name" {
+  type        = string
+  description = "The environment for the GKE cluster"
+}
