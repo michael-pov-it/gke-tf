@@ -6,7 +6,7 @@ module "main-network" {
   subnets = [
     {
       subnet_name   = "${var.subnetwork}-${var.env_name}"
-      subnet_ip     = "10.10.0.0/16"
+      subnet_ip     = "10.101.0.0/16"
       subnet_region = var.region
     },
   ]
@@ -15,11 +15,11 @@ module "main-network" {
     "${var.subnetwork}-${var.env_name}" = [
       {
         range_name    = var.ip_range_pods_name
-        ip_cidr_range = "10.20.0.0/16"
+        ip_cidr_range = "10.102.0.0/16"
       },
       {
         range_name    = var.ip_range_services_name
-        ip_cidr_range = "10.30.0.0/16"
+        ip_cidr_range = "10.103.0.0/16"
       },
     ]
   }
