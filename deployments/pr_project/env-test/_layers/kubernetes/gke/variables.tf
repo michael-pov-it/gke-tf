@@ -1,4 +1,4 @@
-### TFC variables
+### Common variables
 variable "project_id" {
   type        = string
   description = "The project ID to host the cluster in"
@@ -6,10 +6,6 @@ variable "project_id" {
 variable "region" {
   type        = string
   description = "The region to host the cluster in"
-}
-variable "zone" {
-  type        = string
-  description = "The zone to host the cluster in"
 }
 variable "env_name" {
   type        = string
@@ -21,6 +17,13 @@ variable "cluster_name" {
 }
 
 ### Cluster variables
+variable "network_name" {
+  type        = string
+  description = ""
+}
+variable "subnets_names" {
+  description = ""
+}
 variable "network" {
   type        = string
   description = "The VPC network created to host the cluster in"
@@ -46,8 +49,13 @@ variable "zones" {
   description = "The project ID to host the cluster in"
   default     = ["europe-west3-a", "europe-west3-b"]
 }
+variable "logging_service" {
+  type        = string
+  description = ""
+  default     = "logging.googleapis.com/kubernetes"
+}
 
 ### Creds
 variable "GOOGLE_CREDENTIALS" {
-  default = ""
+  default     = ""
 }
