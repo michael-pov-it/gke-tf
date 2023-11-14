@@ -23,7 +23,7 @@ module "gke_auth" {
   project_id   = var.project_id
   env_name      = var.env_name
   location     = module.gke.location
-  cluster_name = module.gke.name
+  cluster_name = var.cluster_name
   depends_on   = [
     module.gke
   ]
