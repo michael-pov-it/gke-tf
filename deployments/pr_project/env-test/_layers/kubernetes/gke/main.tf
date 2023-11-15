@@ -20,7 +20,7 @@ module "kubernetes" {
 
   node_pools = [
     {
-      name                = "node-pool-test"
+      name                = var.main_node_pool_name
       machine_type        = "e2-standard-2"
       node_locations      = "europe-west3-b,europe-west3-c"
       min_count           = 3

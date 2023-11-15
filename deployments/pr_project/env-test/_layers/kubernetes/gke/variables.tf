@@ -17,6 +17,10 @@ variable "cluster_name" {
 }
 
 ### Cluster variables
+variable "main_node_pool_name" {
+  type = string
+  default = "main-node-pool"
+}
 variable "network_name" {
   type        = string
   description = ""

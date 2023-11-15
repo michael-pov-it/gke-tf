@@ -4,7 +4,7 @@ resource "google_service_account" "mail-server-sa" {
 }
 
 resource "google_compute_instance" "mail-server" {
-  name         = var.instance_name
+  name         = "${var.instance_name}-${var.env_name}"
   machine_type = "n2-standard-2"
   zone         = var.isntance_zone
 

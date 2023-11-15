@@ -21,16 +21,16 @@ module "gke" {
 module "gke_auth" {
   source       = "../_layers/kubernetes/auth"
   project_id   = var.project_id
-  env_name      = var.env_name
+  env_name     = var.env_name
   location     = module.gke.location
   cluster_name = var.cluster_name
-  depends_on   = [
+  depends_on = [
     module.gke
   ]
 }
 
 ### Mail-Server SendGrid
 module "mail-server" {
-  source = "../_layers/instances/mail-server"
-  instance_name = "SendGrid-mail-server"
+  source   = "../_layers/instances/mail-server"
+  env_name = var.env_name
 }
