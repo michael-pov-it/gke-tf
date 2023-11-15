@@ -8,7 +8,7 @@ resource "google_compute_instance" "mail-server" {
   machine_type = "n2-standard-2"
   zone         = var.isntance_zone
 
-  tags = ["mail-server", "ownedBy-MikeGordievsky"]
+  tags = ["mail-server", "mike-gordievsky"]
 
   boot_disk {
     initialize_params {
