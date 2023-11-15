@@ -11,5 +11,5 @@ variable "env_name" {
   description = "The environment for the GKE cluster"
 }
 variable "isntance_zone" {
-    default = "europe-west3-a"
+    default = "europe-west3-c"
 }
