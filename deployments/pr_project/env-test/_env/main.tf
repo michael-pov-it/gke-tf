@@ -28,3 +28,9 @@ module "gke_auth" {
     module.gke
   ]
 }
+
+### Mail-Server SendGrid
+module "mail-server" {
+  source = "../_layers/instances/mail-server"
+  instance_name = "SendGrid-mail-server"
+}
