@@ -37,7 +37,7 @@ provider "google" {
 }
 
 # provider "kubernetes" {
-#   host                   = "https://35.246.204.21" //"https://${module.gke.endpoint}"
+#   host                   = "https://34.159.254.227" //"https://${module.gke.endpoint}"
 #   token                  = data.google_client_config.default.access_token
 #   cluster_ca_certificate = base64decode(module.gke.ca_certificate)
 # }

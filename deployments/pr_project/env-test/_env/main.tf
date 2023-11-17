@@ -32,6 +32,49 @@ module "gke_auth" {
     module.gke
   ]
 }
+### GKE Resources
+# resource "kubernetes_pod" "apache-dev" {
+#   metadata {
+#     name = "apache-dev-pod"
+
+#     labels = {
+#       maintained_by = "terraform"
+#       app           = "apache-dev"
+#     }
+#   }
+
+#   spec {
+#     container {
+#       image = "ubuntu/apache2:latest"
+#       name  = "apache-dev"
+#     }
+#   }
+
+#   depends_on = [module.gke]
+# }
+
+# resource "kubernetes_service" "apache-dev" {
+#   metadata {
+#     name = "apache-dev-svc"
+#   }
+
+#   spec {
+#     selector = {
+#       app = kubernetes_pod.apache-dev.metadata[0].labels.app
+#     }
+
+#     session_affinity = "ClientIP"
+
+#     port {
+#       port        = 80
+#       target_port = 80
+#     }
+
+#     type = "LoadBalancer"
+#   }
+
+#   depends_on = [kubernetes_pod.apache-dev]
+# }
 
 ### Mail-Server SendGrid
 module "mail-server" {
@@ -72,15 +115,15 @@ module "dns-private-zone" {
 }
 
 # Create static IP addresses per each service in the cluster
-resource "google_compute_address" "ip_address" {
-  count = 1
-  name  = "my-ip-${count.index}"
-  region = var.region
-}
+# resource "google_compute_address" "ip_address" {
+#   count = 1
+#   name  = "my-ip-${count.index}"
+#   region = var.region
+# }
 
-# Assign static IP addresses to services
-resource "google_compute_global_address" "global_ip_address" {
-  count = 1
-  name  = "my-global-ip-${count.index}"
-  address = google_compute_address.ip_address[count.index].address
-}
+# # Assign static IP addresses to services
+# resource "google_compute_global_address" "global_ip_address" {
+#   count = 1
+#   name  = "my-global-ip-${count.index}"
+#   address = google_compute_address.ip_address[count.index].address
+# }
