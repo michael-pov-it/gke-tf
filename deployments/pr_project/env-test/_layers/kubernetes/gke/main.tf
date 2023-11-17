@@ -1,14 +1,17 @@
 module "kubernetes" {
   source                     = "terraform-google-modules/kubernetes-engine/google"
   version                    = "28.0.0"
+
   name                       = "${var.cluster_name}-${var.env_name}"
   project_id                 = var.project_id
   region                     = var.region
   zones                      = var.zones
+  
   network                    = var.network_name
   subnetwork                 = var.subnets_names
   ip_range_pods              = var.ip_range_pods_name
   ip_range_services          = var.ip_range_services_name
+  
   logging_service            = var.logging_service
   
   regional                   = true
@@ -17,7 +20,7 @@ module "kubernetes" {
   horizontal_pod_autoscaling = true
   filestore_csi_driver       = false
   create_service_account     = true
-
+  
   node_pools = [
     {
       name                = var.main_node_pool_name

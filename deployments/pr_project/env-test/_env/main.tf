@@ -60,13 +60,27 @@ module "dns-private-zone" {
         "ns-cloud-d4.googledomains.com.",
       ]
     },
-    {
-      name    = "localhost"
-      type    = "A"
-      ttl     = 300
-      records = [
-        "127.0.0.1",
-      ]
-    },
+    # {
+    #   name = "service1"
+    #   type = "A"
+    #   ttl  = 300
+    #   rrdatas = [
+    #     google_container_cluster.primary.endpoint,
+    #   ]
+    # },
   ]
+}
+
+# Create static IP addresses per each service in the cluster
+resource "google_compute_address" "ip_address" {
+  count = 1
+  name  = "my-ip-${count.index}"
+  region = var.region
+}
+
+# Assign static IP addresses to services
+resource "google_compute_global_address" "global_ip_address" {
+  count = 1
+  name  = "my-global-ip-${count.index}"
+  address = google_compute_address.ip_address[count.index].address
 }
